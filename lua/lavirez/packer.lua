@@ -15,10 +15,24 @@ return require('packer').startup(function(use)
   use ({
       'shaunsingh/nord.nvim',
       as = "nord",
-      config = function ()
-          require("nord").setup()
-          vim.cmd("colorscheme nord")
-      end
+  })
+
+  use ({
+      "lunarvim/horizon.nvim",
+      as = "horizon"
+  })
+
+
+  use ({
+      'nyoom-engineering/oxocarbon.nvim',
+      as = "oxocarbon",
+  })
+
+  use { "catppuccin/nvim", as = "catppuccin" }
+
+  use ({
+      "Shatur/neovim-ayu",
+      as = "ayu",
   })
 
   use ({
@@ -30,6 +44,7 @@ return require('packer').startup(function(use)
       "rose-pine/nvim",
       as = "rose-pine",
   })
+
 
   -- Lua
   use {
