@@ -22,6 +22,11 @@ return require('packer').startup(function(use)
       as = "horizon"
   })
 
+  use ({
+      "bluz71/vim-moonfly-colors",
+      as = "moonfly"
+  })
+	
 
   use ({
       'nyoom-engineering/oxocarbon.nvim',
