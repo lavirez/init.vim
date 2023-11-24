@@ -3,6 +3,7 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
+
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -51,6 +52,11 @@ return require('packer').startup(function(use)
   })
 
 
+  -- nvim siganture
+  use {
+      "ray-x/lsp_signature.nvim",
+  }
+
   -- Lua
   use {
       "folke/trouble.nvim",
@@ -71,6 +77,10 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use("nvim-treesitter/nvim-treesitter-context");
 
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
