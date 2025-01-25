@@ -18,6 +18,15 @@ return require('packer').startup(function(use)
       as = "nord",
   })
 
+  use({
+    "CopilotC-Nvim/CopilotChat.nvim",
+    requires = { 
+      "github/copilot.nvim",
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+  })
+
+
   use ({
       "lunarvim/horizon.nvim",
       as = "horizon"
@@ -76,6 +85,11 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use("nvim-treesitter/nvim-treesitter-context");
+
+  -- Prettier 
+  use('jose-elias-alvarez/null-ls.nvim')
+  use('MunifTanjim/prettier.nvim')
+
 
   use {
       'nvim-lualine/lualine.nvim',
