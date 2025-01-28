@@ -38,7 +38,7 @@ lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
         error = '',
-        warn = '',
+        warn = '',
         hint = '',
         info = ''
     }
