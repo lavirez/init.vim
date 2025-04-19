@@ -171,13 +171,18 @@ return {
 			})
 		end
 	},
-    -- undotree
-    { 
-        'mbbill/undotree',
-        config = function()
-            vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-        end
+    -- prettier
+    {
+      "prettier/vim-prettier",
+      build = "yarn install global prettier",
+      ft = { "javascript", "typescript", "css", "scss", "html", "json", "markdown", "graphql", "vue", "yaml" },
+      config = function()
+        vim.g["prettier#autoformat"] = 1
+        vim.g["prettier#exec_cmd_path"] = "prettier" -- Make sure Prettier is in your PATH
+        vim.g["prettier#autoformat_require_pragma"] = 0
+      end,
     },
+
 	-- inline function signatures
 	{
 		"ray-x/lsp_signature.nvim",
@@ -199,11 +204,6 @@ return {
 		'hashivim/vim-terraform',
 		ft = { "terraform" },
 	},
-	-- svelte
-	{
-		'evanleck/vim-svelte',
-		ft = { "svelte" },
-	},
 	-- toml
 	'cespare/vim-toml',
 	-- yaml
@@ -214,6 +214,11 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 	},
+    -- javascript
+    {
+        'pangloss/vim-javascript',
+        ft = { 'javascript' },
+    },
 	-- rust
 	{
 		'rust-lang/rust.vim',
