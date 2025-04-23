@@ -50,22 +50,17 @@ return {
 
 			-- Ruff for Python
 			local configs = require 'lspconfig.configs'
-			if not configs.ruff_lsp and vim.fn.executable('ruff-lsp') == 1 then
-				configs.ruff_lsp = {
+			if not configs.ruff and vim.fn.executable('ruff') == 1 then
+				configs.ruff = {
 					default_config = {
-						cmd = { 'ruff-lsp' },
+						cmd = { 'ruff', 'server' },
 						filetypes = { 'python' },
 						root_dir = require('lspconfig').util.find_git_ancestor,
-						init_options = {
-							settings = {
-								args = {}
-							}
-						}
 					}
 				}
 			end
-			if configs.ruff_lsp then
-				lspconfig.ruff_lsp.setup {}
+			if configs.ruff then
+				lspconfig.ruff.setup {}
 			end
 
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
