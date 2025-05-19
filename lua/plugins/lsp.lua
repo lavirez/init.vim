@@ -63,6 +63,34 @@ return {
 				lspconfig.ruff.setup {}
 			end
 
+            -- Typescript and Javascript Language server
+            if not configs.tsserver and vim.fn.executable('typescript-language-server') == 1 then
+                configs.tsserver = {
+                    default_config = {
+                        cmd = { 'typescript-language-server', '--stdio' },
+                        filetypes = {
+                            'javascript',
+                            'javascriptreact',
+                            'javascript.jsx',
+                            'typescript',
+                            'typescriptreact',
+                            'typescript.tsx',
+                        },
+                        root_dir = lspconfig.util.root_pattern('package.json', 'tsconfig.json', '.git'),
+                        settings = {},
+                    },
+                }
+            end
+
+            -- Setup tsserver
+            if configs.tsserver then
+                lspconfig.tsserver.setup {
+                    on_attach = function(client, bufnr)
+                        client.server_capabilities.documentFormattingProvider = false
+                    end,
+                }
+            end
+
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
             vim.diagnostic.config({
                 underline = false
